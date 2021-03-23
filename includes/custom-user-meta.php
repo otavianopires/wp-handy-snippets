@@ -52,3 +52,27 @@ function custom_meta_field_sanitize( $value ) {
     return sanitize_text_field( $value );
 }
 add_filter( 'sanitize_user_meta_' . 'my_custom_meta', 'custom_meta_field_sanitize' );
+
+/**
+ * Add column to custom meta field
+ */
+function add_custom_meta_field_column($columns) {
+    $columns['my_custom_meta'] = __( 'My Custom Meta', 'text-domain' );
+    return $columns;
+}
+add_filter('manage_users_columns', 'add_custom_meta_field_column');
+
+
+/**
+ * Output custom metafield content in column
+ */
+function show_custom_meta_field_column_content($value, $column_name, $user_id) {
+    if ( 'my_custom_meta' == $column_name ) {
+        $my_custom_meta = get_user_meta( $user_id, 'my_custom_meta', true);
+        $my_custom_meta = !empty($my_custom_meta) ? $my_custom_meta : '';
+
+        return $my_custom_meta;
+    }
+    return $value;
+}
+add_filter('manage_users_custom_column', 'show_custom_meta_field_column_content', 10, 3);
