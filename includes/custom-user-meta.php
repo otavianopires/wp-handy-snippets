@@ -12,7 +12,7 @@ function custom_meta_field( $user )
     <table class="form-table">
         <tr>
             <th>
-                <label for="werwer">Custom Meta</label>
+                <label for="my_custom_meta">My Custom Meta</label>
             </th>
             <td>
                 <input type="text" id="my_custom_meta" name="my_custom_meta" value="<?php echo $my_custom_meta; ?>" />
