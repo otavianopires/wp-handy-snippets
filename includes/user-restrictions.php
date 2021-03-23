@@ -22,3 +22,15 @@ function remove_admin_bar_for_subscribers() {
     }
 }
 // add_action('after_setup_theme', 'remove_admin_bar_for_subscribers' );
+
+/**
+ * Restrict the content from posts.
+ */
+function restrict_the_content( $content ) {
+    if ( in_the_loop() && is_main_query() && !is_user_logged_in() ) {
+        return '<p>Please login to read this content.</p>';
+    }
+    
+    return $content;
+}
+// add_filter( 'the_content', 'restrict_the_content', 0 );
