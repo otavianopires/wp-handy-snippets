@@ -25,3 +25,13 @@ function redirect_subscribers_from_dashboard() {
     }
 }
 add_action( 'admin_init', 'redirect_subscribers_from_dashboard', 1 );
+
+/**
+ * Hide Admin Bar for Subscribers
+ */
+function remove_admin_bar_for_subscribers() {
+    if ( current_user_can( 'subscriber' ) ) {
+        show_admin_bar(false);
+    }
+}
+add_action('after_setup_theme', 'remove_admin_bar_for_subscribers' );
