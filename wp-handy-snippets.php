@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       WP Handy Snippets
- * Plugin URI:        https://github.com/otavianopires/wp-protected-attachments
+ * Plugin URI:        https://github.com/otavianopires/wp-handy-snippets
  * Description:       Handy snippets for WordPress Themes or Plugins
  * Version:           0.1
  * Author:            Otaviano Pires Amancio
